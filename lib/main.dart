@@ -1,10 +1,10 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:furitshop/features/widget/widget/sizeconig.dart';
+import 'package:furitshop/core/defaultsize/sizeconig.dart';
 import 'package:furitshop/core/services/services_setting.dart';
-import 'package:furitshop/UI/views/home/homepage.dart';
-import 'package:furitshop/splash%20view%F0%9F%A4%A6%E2%80%8D%E2%99%80%EF%B8%8F/padgeview/padge_view.dart';
-import 'package:furitshop/splash%20view%F0%9F%A4%A6%E2%80%8D%E2%99%80%EF%B8%8F/splash_view/splashview.dart';
+import 'package:furitshop/views/screens/Home/homepage.dart';
+import 'package:furitshop/views/screens/splash%20view%F0%9F%A4%A6%E2%80%8D%E2%99%80%EF%B8%8F/padgeview/padge_view.dart';
+import 'package:furitshop/views/screens/splash%20view%F0%9F%A4%A6%E2%80%8D%E2%99%80%EF%B8%8F/splash_view/splashview.dart';
 import 'package:get/get.dart';
 // Splashviewbody don`t forget to make it false 
 void main() async {
