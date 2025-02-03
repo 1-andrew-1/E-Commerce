@@ -47,10 +47,10 @@ class Authbutton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         margin: EdgeInsets.only(
-            left: Sizeconig.defaultsize! * 2,
-            right: Sizeconig.defaultsize! * 2),
+            left: Sizeconig.defaultsize! * 1,
+            right: Sizeconig.defaultsize! * 1),
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(12),
+            borderRadius: BorderRadius.circular(25),
             color:  Colors.white,
             boxShadow: const [
               BoxShadow(
@@ -72,12 +72,12 @@ class Authbutton extends StatelessWidget {
               title: Text(
                 textauth,
                 style: TextStyle(
-                  fontSize: Sizeconig.defaultsize! * 1.6,
+                  fontSize: Sizeconig.defaultsize! * 1.7,
                   fontWeight: FontWeight.bold,
                 ),
               ),
               trailing:
-                  Icon(Icons.arrow_forward, size: Sizeconig.defaultsize! * 3.5),
+                  Icon(Icons.arrow_forward, size: Sizeconig.defaultsize! * 3),
             )));
   }
 }

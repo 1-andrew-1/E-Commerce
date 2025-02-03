@@ -24,7 +24,19 @@ class Homecontroller extends GetxController {
     }
     return false ;
   }
+  RxDouble totalPrice = 0.0.obs; // Reactive total price
 
+  // Method to calculate total price
+  void calculateTotal() {
+    double total = 0.0;
+    for (var item in cart) {
+      int count = item['id'].value;
+      var product = data![count];
+      int quantity = item['quantity'].value;
+      total += quantity * double.parse(product["price"].toString());
+    }
+    totalPrice.value = total;
+  }
   getproduct ( ) async {
     data = await productapi.getProducts() ;
     isfetched.value = true ;
@@ -66,6 +78,9 @@ class Homecontroller extends GetxController {
   }
 
 }
+
+
+
 class SelectPage extends GetxController {
 
   int currentPageIndex = 0 ;

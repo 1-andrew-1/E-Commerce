@@ -5,6 +5,7 @@ import 'package:furitshop/core/services/services_setting.dart';
 import 'package:furitshop/views/screens/log/login.dart';
 import 'package:furitshop/views/screens/account/stackmyaccount.dart';
 import 'package:furitshop/views/screens/account/thebutton.dart';
+import 'package:furitshop/views/screens/setting/setting.dart';
 import 'package:furitshop/views/widgets/spacher.dart';
 import 'package:get/get.dart';
 
@@ -25,13 +26,17 @@ class Myaccountbody extends StatelessWidget {
             Get.to( () =>Myfavourite() ) ;
           }, icon: Icons.favorite, text: 'Favorite') ,
           Divider(),
-          Thebutton(ontap: () {}, icon: Icons.settings, text: 'Settings') ,
-          Divider() ,
           Thebutton(ontap: () {
+            Get.to( () => Setting() ) ;
+          }, icon: Icons.settings, text: 'Settings') ,
+          Divider() ,
+          Thebutton(ontap: () { 
             Get.to( () => Mycaed() ) ;
           }, icon: Icons.shopping_cart, text: 'Mycard'),
           Divider(),
-          Thebutton(ontap: () { }, icon: Icons.rate_review, text: 'Rate us'),
+          Thebutton(ontap: () {
+            
+           }, icon: Icons.rate_review, text: 'Rate us'),
           Divider() ,
           Thebutton(ontap: ( ) { }, icon: Icons.share, text: 'refer to friends'),
           Divider() ,
