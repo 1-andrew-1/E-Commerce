@@ -4,6 +4,7 @@ import 'package:furitshop/payment/Payment%20Stripe/Models/payment_intent_input_m
 import 'package:furitshop/views/screens/cart/card%20count/card_widget.dart';
 import 'package:furitshop/views/screens/cart/card%20count/emptyscreen.dart';
 import 'package:furitshop/controller/homecontroller.dart';
+import 'package:furitshop/views/screens/cart/card%20count/location.dart';
 import 'package:furitshop/views/widgets/addtocartbutton.dart';
 import 'package:furitshop/views/widgets/payment_scuess_screen.dart';
 import 'package:get/get.dart';
@@ -31,24 +32,28 @@ class Mycaed extends StatelessWidget {
                 })
             : Column(
                 children: [
+                  Padding(
+                    padding: EdgeInsets.only(left: 10),
+                    child: Location(),
+                  ),
                   Expanded(
                     child: ListView.builder(
-                          itemCount: controller.cart
-                              .length, // Use the length of your data list to show all items.
-                          itemBuilder: (context, index) {
-                            int count = controller.cart[index]['id']?.value;
-                            var data = controller.data![count];
-                            var rate = data["rating"]["rate"];
-                            return CartWidgt(
-                              photo: "${data["image"]}",
-                              title: "${data["title"]}",
-                              price: "${data["price"]}",
-                              rating: rate.toDouble(),
-                              id: data["id"],
-                              index: index,
-                            );
-                          }),
-                    ),
+                        itemCount: controller.cart
+                            .length, // Use the length of your data list to show all items.
+                        itemBuilder: (context, index) {
+                          int count = controller.cart[index]['id']?.value;
+                          var data = controller.data![count];
+                          var rate = data["rating"]["rate"];
+                          return CartWidgt(
+                            photo: "${data["image"]}",
+                            title: "${data["title"]}",
+                            price: "${data["price"]}",
+                            rating: rate.toDouble(),
+                            id: data["id"],
+                            index: index,
+                          );
+                        }),
+                  ),
                   Padding(
                     padding: const EdgeInsets.only(
                         left: 30, right: 30, bottom: 15, top: 10),
@@ -72,16 +77,19 @@ class Mycaed extends StatelessWidget {
                       ),
                       Addtocartbutton(
                         onPressed: () async {
-                          String ammount = (controller.totalPrice.value*100).toInt().toString();
-                          print("==================================================${paymentController.paymentSuccess.value}");
+                          String ammount = (controller.totalPrice.value * 100)
+                              .toInt()
+                              .toString();
+                          print(
+                              "==================================================${paymentController.paymentSuccess.value}");
                           await paymentController.makepayment(
                               paymentIntentInputModel: PaymentIntentInputModel(
-                                  ammount: ammount,
-                                  currencyCode: "USD" ));
-                                                    print("==================================================${paymentController.paymentSuccess.value}");
-                              if (paymentController.paymentSuccess.value == true) {
-                                Get.to( () => PaymentScuessScreen() ) ;
-                              }
+                                  ammount: ammount, currencyCode: "USD"));
+                          print(
+                              "==================================================${paymentController.paymentSuccess.value}");
+                          if (paymentController.paymentSuccess.value == true) {
+                            Get.to(() => PaymentScuessScreen());
+                          }
                         },
                         iconData: Icons.payment,
                         text: "Place Order",

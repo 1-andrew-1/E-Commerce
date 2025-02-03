@@ -71,9 +71,11 @@ class Authbutton extends StatelessWidget {
                   Image.asset(imageauth, height: Sizeconig.defaultsize! * 3.5),
               title: Text(
                 textauth,
+                textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: Sizeconig.defaultsize! * 1.7,
                   fontWeight: FontWeight.bold,
+                  
                 ),
               ),
               trailing:
