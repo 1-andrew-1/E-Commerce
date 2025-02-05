@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:furitshop/views/screens/Favourite/myfavourite.dart';
+import 'package:furitshop/views/screens/Order/orderscreen.dart';
 import 'package:furitshop/views/screens/cart/mycaed.dart';
 import 'package:furitshop/core/services/services_setting.dart';
 import 'package:furitshop/views/screens/log/login.dart';
@@ -20,7 +21,9 @@ class Myaccountbody extends StatelessWidget {
         children: [
           Stackmyaccount(),
           Heightspace( value: 2 ),
-          Thebutton(ontap: () {}, icon: Icons.shopping_bag, text: 'My Order') ,
+          Thebutton(ontap: () {
+            Get.to( () => OrderScreen() ) ;
+          }, icon: Icons.shopping_bag, text: 'My Order') ,
           Divider(),
           Thebutton(ontap: () {
             Get.to( () =>Myfavourite() ) ;

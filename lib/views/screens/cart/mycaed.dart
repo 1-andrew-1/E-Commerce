@@ -1,10 +1,13 @@
+import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
+import 'package:furitshop/controller/order.dart';
 import 'package:furitshop/controller/payment.dart';
 import 'package:furitshop/payment/Payment%20Stripe/Models/payment_intent_input_model.dart';
 import 'package:furitshop/views/screens/cart/card%20count/card_widget.dart';
 import 'package:furitshop/views/screens/cart/card%20count/emptyscreen.dart';
 import 'package:furitshop/controller/homecontroller.dart';
 import 'package:furitshop/views/screens/cart/card%20count/location.dart';
+import 'package:furitshop/views/screens/cart/thank_you.dart';
 import 'package:furitshop/views/widgets/addtocartbutton.dart';
 import 'package:furitshop/views/widgets/payment_scuess_screen.dart';
 import 'package:get/get.dart';
@@ -15,6 +18,7 @@ class Mycaed extends StatelessWidget {
   Widget build(BuildContext context) {
     final PaymentController paymentController = Get.put(PaymentController());
     final Homecontroller controller = Get.put(Homecontroller());
+    final Ordercontroller order = Get.put(Ordercontroller());
     return Scaffold(
       appBar: AppBar(
         title: const Text('Shopping Cart'),
@@ -88,7 +92,8 @@ class Mycaed extends StatelessWidget {
                           print(
                               "==================================================${paymentController.paymentSuccess.value}");
                           if (paymentController.paymentSuccess.value == true) {
-                            Get.to(() => PaymentScuessScreen());
+                            order.placeOrder() ;
+                            Get.to(() => PaymentSuccessScreen());
                           }
                         },
                         iconData: Icons.payment,

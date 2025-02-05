@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:furitshop/payment/Payment%20Stripe/Cubit/payment_cubit.dart';
 import 'package:furitshop/payment/Payment%20Stripe/Models/payment_intent_input_model.dart';
-import 'package:furitshop/payment/Payment%20Stripe/homepage.dart';
 
 
 class Payment extends StatelessWidget {
@@ -19,9 +18,9 @@ class Payment extends StatelessWidget {
               if (state is PaymentSuccess) {
                 islodding = false ;
                 print('Payment Successful');
-                Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => const Homepage()),
-                );
+                //Navigator.of(context).push(
+                  //MaterialPageRoute(builder: (context) => const Homepage()),
+                //);
               } else if (state is PaymentError) {
                 islodding = false ;
                 print('Payment Failed');

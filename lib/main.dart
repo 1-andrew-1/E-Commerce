@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
           home: const Splashview() ,
           getPages: [
-            GetPage(name: '/home', page: () => const Homepage()),
+            GetPage(name: '/home', page: () =>  Homepage()),
             GetPage(name: '/padeview', page: () => const NextPage() ),
             // Add your other pages here
           ],

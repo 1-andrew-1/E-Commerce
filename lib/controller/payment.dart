@@ -18,4 +18,9 @@ class PaymentController extends GetxController {
       print('Failed to initialize $e');
     }
   }
+  void clear () {
+    paymentLoading.value = false;
+    paymentSuccess.value = false;
+    paymentError.value = false;
+  }
 }

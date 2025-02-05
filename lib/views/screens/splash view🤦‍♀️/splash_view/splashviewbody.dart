@@ -24,7 +24,7 @@ class _SplashviewbodyState extends State<Splashviewbody>
       if (  controller.islogging == false ) {
         Get.off( () => const NextPage() , transition: Transition.fade ) ;
       }else {
-        Get.off( () => const Homepage(), transition: Transition.fade );
+        Get.off( () =>  Homepage(), transition: Transition.fade );
       }
   }
 

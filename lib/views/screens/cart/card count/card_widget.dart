@@ -45,13 +45,15 @@ class _CartWidgtState extends State<CartWidgt> {
             child: Row(
               children: [
                 // Product Image
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(10),
-                  child: Image.network(
-                    widget.photo,
-                    height: Sizeconig.defaultsize! * 10,
-                    width: Sizeconig.defaultsize! * 10,
-                    fit: BoxFit.cover,
+                Center(
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(10),
+                    child: Image.network(
+                      widget.photo,
+                      height: Sizeconig.defaultsize! * 10,
+                      width: Sizeconig.defaultsize! * 10,
+                      fit: BoxFit.contain,
+                    ),
                   ),
                 ),
                 const SizedBox(width: 10),

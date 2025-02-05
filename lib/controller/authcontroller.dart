@@ -23,7 +23,7 @@ class Authcontroller extends GetxController {
     c.logging() ;
     c.getUserInfo();
     //await FirebaseAuth.instance.signInWithCredential(facebookAuthCredential);
-    return Get.off( ()=> const Homepage() ) ;
+    return Get.off( ()=>  Homepage() ) ;
   }
 
   // google_sign_in

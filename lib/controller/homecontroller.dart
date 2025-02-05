@@ -7,7 +7,7 @@ import 'package:get/get.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 
 class Homecontroller extends GetxController {
-  RxBool isfetched = false.obs ;
+  RxBool isfetched = true.obs ;
   ProductApi productapi = ProductApi() ;
   List<dynamic> ? data ;
   List <dynamic> favorite = [].obs ;
@@ -17,6 +17,11 @@ class Homecontroller extends GetxController {
     } else {
       favorite.add(id.obs); // Add the product as a favorite
     }
+  }
+  void loading_screen() {
+    Future.delayed(Duration(seconds: 3), () {
+      isfetched.value = false ;
+    });
   }
   bool check ( int id ) {
     if( favorite.contains(id.obs)){

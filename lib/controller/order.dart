@@ -1,6 +1,8 @@
+import 'package:furitshop/controller/homecontroller.dart';
 import 'package:get/get.dart';
 
-class Order extends GetxController {
+class Ordercontroller extends GetxController {
+  String citiesName = "الإسكندرية";
   final List<String> cities = [
     "القاهرة", // Cairo
     "الجيزة", // Giza
@@ -30,4 +32,19 @@ class Order extends GetxController {
     "جنوب سيناء", // South Sinai
     "السويس", // Suez
   ];
+  final Homecontroller homecontroller = Get.put(Homecontroller());
+  List<dynamic> orderList = <Map<String, dynamic>>[].obs;
+  // Function to move homecontroller.cart items to order list and clear the homecontroller.cart
+  // Function to merge homecontroller.cart items into one order and add cities
+  void placeOrder() {
+    // Creating a single order with all homecontroller.cart items and cities
+    Map<String, dynamic> newOrder = {
+      'items': List.from(homecontroller.cart), // Copy all homecontroller.cart items
+      'cities': citiesName, // Store unique cities
+      'timestamp': DateTime.now().toString(), // Optional timestamp
+    };
+    orderList.add(newOrder); // Add single order to orderList
+    homecontroller.cart.clear(); // Empty the homecontroller.cart
+    print ("=======================================$orderList");
+  }
 }

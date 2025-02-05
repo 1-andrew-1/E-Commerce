@@ -7,7 +7,6 @@ import 'package:get/get.dart';
 
 class Loginbody extends StatefulWidget {
   const Loginbody({super.key});
-
   @override
   State<Loginbody> createState() => _LoginbodyState();
 }

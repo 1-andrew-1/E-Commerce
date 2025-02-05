@@ -3,11 +3,11 @@ import 'package:furitshop/controller/order.dart';
 import 'package:get/get.dart';
 
 class Location extends StatelessWidget {
-  Location({Key? key}) : super(key: key);
+  Location({super.key});
 
-  final ValueNotifier<String> selectedCity = ValueNotifier<String>("Cairo");
+  final ValueNotifier<String> selectedCity = ValueNotifier<String>("الإسكندرية");
 
-  final Order order = Get.put(Order()) ;
+  final Ordercontroller order = Get.put(Ordercontroller()) ;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -50,6 +50,7 @@ class Location extends StatelessWidget {
                 title: Text(city),
                 onTap: () {
                   selectedCity.value = city;
+                  order.citiesName = city ;
                   Navigator.pop(context);
                 },
               );
