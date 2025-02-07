@@ -4,7 +4,7 @@
 
     <application
         android:requestLegacyExternalStorage="true"
-        android:label="Electricshop"
+        android:label="ecommerce"
         android:name="${applicationName}"
         android:usesCleartextTraffic="true" 
         android:icon="@mipmap/ic_launcher">

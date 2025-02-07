@@ -1,7 +1,6 @@
-import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:furitshop/controller/order.dart';
-import 'package:furitshop/views/screens/Home/homepage.dart';
+import 'package:furitshop/views/screens/Home/bottonnavigarion.dart';
 import 'package:furitshop/views/screens/cart/card%20count/emptyscreen.dart';
 import 'package:get/get.dart';
 
@@ -24,8 +23,7 @@ class OrderScreen  extends StatelessWidget {
                 subTitle: "Once you place an order, you'll see it here.",
                 buttonText: "Browse Products",
                 onButtonPressed: () {
-                  print(order.orderList) ;
-                  Get.offAll(()=>Homepage());
+                  Get.offAll(()=>BottomNavigation());
                 })
             : Center(
               child: Text("andrew"),

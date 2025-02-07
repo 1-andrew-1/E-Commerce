@@ -9,13 +9,14 @@ import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 class Homecontroller extends GetxController {
   RxBool isfetched = true.obs ;
   ProductApi productapi = ProductApi() ;
-  List<dynamic> ? data ;
-  List <dynamic> favorite = [].obs ;
+  List <dynamic> ? data ;
+  List <dynamic> favorite = [];
+  List <Map<String, dynamic>> cart = <Map<String, dynamic>>[]; // Reactive list of maps
   void addToFavorite(int id) {
     if (check(id)) {
-      favorite.remove(id.obs); // Remove the product from the favorite list if it exists there  // TODO: implement a way to remove the product from the favorite list, such as using Firestore or a database.  // You can use the following code as a reference: favorite.removeWhere((id) => id == id.obs);  // Make sure to replace 'id' with the actual variable representing the product's ID.  // Note: This code is just a placeholder and you need to replace it with the actual implementation.  // Also, make sure to handle the case where the user tries to remove a product that is not in their favorite list.  // You can add a check to see if the product exists in the favorite list before attempting to remove it.  // For example: if (favorite.contains(id.obs)) favorite.remove(id);  // Make sure to update the UI to reflect the changes.  // You can use the Getx
+      favorite.remove(id); // Remove the product from the favorite list if it exists there  // TODO: implement a way to remove the product from the favorite list, such as using Firestore or a database.  // You can use the following code as a reference: favorite.removeWhere((id) => id == id.obs);  // Make sure to replace 'id' with the actual variable representing the product's ID.  // Note: This code is just a placeholder and you need to replace it with the actual implementation.  // Also, make sure to handle the case where the user tries to remove a product that is not in their favorite list.  // You can add a check to see if the product exists in the favorite list before attempting to remove it.  // For example: if (favorite.contains(id.obs)) favorite.remove(id);  // Make sure to update the UI to reflect the changes.  // You can use the Getx
     } else {
-      favorite.add(id.obs); // Add the product as a favorite
+      favorite.add(id); // Add the product as a favorite
     }
   }
   void loading_screen() {
@@ -24,7 +25,7 @@ class Homecontroller extends GetxController {
     });
   }
   bool check ( int id ) {
-    if( favorite.contains(id.obs)){
+    if( favorite.contains(id)){
       return true ;
     }
     return false ;
@@ -48,7 +49,6 @@ class Homecontroller extends GetxController {
     update();
   }
 
-  List <dynamic> cart = <Map<String, dynamic>>[].obs; // Reactive list of maps
   void addToCart(int id) {
   // Check if item already exists in cart
   var existingItem = cart.firstWhereOrNull((item) => item['id'] == id);
@@ -56,7 +56,7 @@ class Homecontroller extends GetxController {
   if (existingItem != null) {
     existingItem['quantity'].value += 1; // Increment quantity
   } else {
-    cart.add({'id': id.obs, 'quantity': 1.obs}); // Add new item
+    cart.add({'id': id, 'quantity': 1}); // Add new item
   }
 }
   RxInt quantity = 1.obs;
