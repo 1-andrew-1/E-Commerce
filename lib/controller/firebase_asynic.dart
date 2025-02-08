@@ -4,7 +4,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 class FirebaseAsync extends GetxController {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
-
   // ✅ Observable List to store orders
   var orderList = <Map<String, dynamic>>[].obs;
 
@@ -48,19 +47,8 @@ class FirebaseAsync extends GetxController {
     }
   }
 
-  // ✅ Fetch User's Cart & Favorites
-  Future<Map<String, dynamic>> getUserCartAndFavorites() async {
-    String userUID = getCurrentUserUID();
-    if (userUID.isEmpty) return {}; // Ensure user is logged in
-
-    try {
-      DocumentSnapshot doc = await _firestore.collection('users').doc(userUID).get();
-      return doc.exists ? doc.data() as Map<String, dynamic> : {};
-    } catch (e) {
-      print("Error fetching cart & favorites: $e");
-      return {};
-    }
-  }
+   
+  List<Map<String, dynamic>> showOrder = []; // ✅ Maintain proper typing
 
   // ✅ Fetch User's Orders from Firestore
   Future<void> fetchUserOrders() async {
@@ -73,26 +61,30 @@ class FirebaseAsync extends GetxController {
           .doc(userUID)
           .collection('orders')
           .get();
+      // ✅ Correctly update `showOrder`
+      showOrder = querySnapshot.docs.map((doc) => doc.data() as Map<String, dynamic>).toList();
+      update(); // ✅ Notify GetX to update UI
 
-      // Update `orderList` reactively
-      orderList.assignAll(querySnapshot.docs.map((doc) => doc.data() as Map<String, dynamic>));
-      update(); // Notify GetX to update UI
-      print("Orders loaded successfully!");
+      print("Orders loaded successfully! Total Orders: ${showOrder.length}");
     } catch (e) {
       print("Error fetching orders: $e");
     }
+
+    print("Fetched Orders: $showOrder"); // ✅ Prints fetched orders clearly
   }
 
   // ✅ Place an Order
   Future<void> sendOrderToFirestore({
-    required Map<String, dynamic> newOrder,
+    required List<dynamic> newOrder,
   }) async {
     String userUID = getCurrentUserUID();
     if (userUID.isEmpty) return; // Ensure user is logged in
 
     try {
-      await _firestore.collection('users').doc(userUID).collection('orders').add(newOrder);
-      await fetchUserOrders(); // Refresh orders after adding a new one
+      await _firestore.collection('users').doc(userUID).set({
+        'orders': newOrder,
+      }, SetOptions(merge: true));;
+      //await fetchUserOrders(); // Refresh orders after adding a new one
       print("Order placed successfully!");
     } catch (e) {
       print("Error placing order: $e");

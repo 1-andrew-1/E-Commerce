@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:furitshop/controller/firebase_asynic.dart';
 import 'package:furitshop/controller/homecontroller.dart';
 import 'package:furitshop/views/screens/Home/homepagebody.dart';
 import 'package:furitshop/views/widgets/loading_screen.dart';
@@ -12,8 +13,11 @@ class BottomNavigation extends StatelessWidget {
   Widget build(BuildContext context) {
     final SelectPage controller = Get.put(SelectPage()) ;
     final Homecontroller _homecontroller = Get.put(Homecontroller()) ;
+    // final FirebaseAsync fire = Get.put(FirebaseAsync()) ;
     _homecontroller.getproduct() ;
     _homecontroller.loading_screen();
+    _homecontroller.getUserCartAndFavorites() ;
+   // fire.fetchUserOrders();
     return Obx(
        () =>
         _homecontroller.isfetched.value ? LoadingScreen()  :

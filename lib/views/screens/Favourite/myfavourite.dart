@@ -1,6 +1,4 @@
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:furitshop/controller/firebase_asynic.dart';
 import 'package:furitshop/views/screens/cardwidget/widget/card_widget.dart';
 import 'package:furitshop/views/screens/cart/card%20count/emptyscreen.dart';
 import 'package:furitshop/controller/homecontroller.dart';
@@ -12,7 +10,6 @@ class Myfavourite extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Homecontroller controller = Get.put(Homecontroller());
-    final FirebaseAsync firebaseAsync = Get.put(FirebaseAsync());
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -21,16 +18,7 @@ class Myfavourite extends StatelessWidget {
         ),
         backgroundColor: Colors.green,
 
-        automaticallyImplyLeading: false,
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back), // Custom back icon
-          onPressed: ()  {
-            firebaseAsync.updateUserFavorites(
-               favorite: controller.favorite );
-              Future.delayed(Duration(seconds: 2)) ;
-            Get.back(); // Go back using GetX
-          },
-        ),
+        automaticallyImplyLeading: true ,
       ),
       body: Obx(() {
         return controller.favorite.isEmpty

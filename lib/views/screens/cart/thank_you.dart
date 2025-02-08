@@ -12,7 +12,7 @@ class PaymentSuccessScreen extends StatelessWidget {
   void delayedAction(BuildContext context) {
     Future.delayed(Duration(seconds: 3) , () {
         PaymentController().clear() ;
-        Get.offAll(() => BottomNavigation());
+        Get.offAll(() => BottomNavigation() ,transition: Transition.fade);
     });
   }
   @override

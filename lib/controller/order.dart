@@ -1,3 +1,4 @@
+import 'package:furitshop/controller/firebase_asynic.dart';
 import 'package:furitshop/controller/homecontroller.dart';
 import 'package:get/get.dart';
 
@@ -33,18 +34,20 @@ class Ordercontroller extends GetxController {
     "السويس", // Suez
   ];
   final Homecontroller homecontroller = Get.put(Homecontroller());
+  final FirebaseAsync controller = Get.put(FirebaseAsync()) ;
   List<dynamic> orderList = <Map<String, dynamic>>[].obs;
   // Function to move homecontroller.cart items to order list and clear the homecontroller.cart
   // Function to merge homecontroller.cart items into one order and add cities
   void placeOrder() {
     // Creating a single order with all homecontroller.cart items and cities
     Map<String, dynamic> newOrder = {
-      'items': List.from(homecontroller.cart), // Copy all homecontroller.cart items
+      'items': List.from(homecontroller.convertdata(cart: homecontroller.cart)), // Copy all homecontroller.cart items
       'cities': citiesName, // Store unique cities
       'timestamp': DateTime.now().toString(), // Optional timestamp
     };
     orderList.add(newOrder); // Add single order to orderList
     homecontroller.cart.clear(); // Empty the homecontroller.cart
+    controller.sendOrderToFirestore(newOrder:homecontroller.convertdata(cart: orderList) );
     print ("=======================================$orderList");
   }
 }
