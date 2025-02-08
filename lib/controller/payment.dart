@@ -17,7 +17,7 @@ class PaymentController extends GetxController {
         paymentLoading.value = false;
     }catch (e) {
       paymentError.value = true;
-      print('Failed to initialize $e');
+      // print('Failed to initialize $e');
     }
   }
   List <dynamic> L = [];

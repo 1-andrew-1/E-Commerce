@@ -33,7 +33,7 @@ class Countcontroller extends GetxController {
       if ( image != null) {
       }
     } catch (e) {
-      print('Error selecting image: $e');
+      //print('Error selecting image: $e');
     }
   }
 }

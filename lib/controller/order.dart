@@ -48,6 +48,6 @@ class Ordercontroller extends GetxController {
     orderList.add(newOrder); // Add single order to orderList
     homecontroller.cart.clear(); // Empty the homecontroller.cart
     controller.sendOrderToFirestore(newOrder:homecontroller.convertdata(cart: orderList) );
-    print ("=======================================$orderList");
+    // print ("=======================================$orderList");
   }
 }

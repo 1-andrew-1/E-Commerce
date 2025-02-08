@@ -17,13 +17,13 @@ class Payment extends StatelessWidget {
              }
               if (state is PaymentSuccess) {
                 islodding = false ;
-                print('Payment Successful');
+                //print('Payment Successful');
                 //Navigator.of(context).push(
                   //MaterialPageRoute(builder: (context) => const Homepage()),
                 //);
               } else if (state is PaymentError) {
                 islodding = false ;
-                print('Payment Failed');
+                // print('Payment Failed');
               }
   
           },
@@ -34,7 +34,7 @@ class Payment extends StatelessWidget {
                   await BlocProvider.of<PaymentCubit>(context).makepayment(
                     paymentIntentInputModel: PaymentIntentInputModel
                     (ammount: total.toString(), currencyCode: "USD"));
-                  print('Floating action button clicked!');
+                 //  print('Floating action button clicked!');
                 },
                 tooltip: 'Click me',
                 child: Icon(Icons.add),

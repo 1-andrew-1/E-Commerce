@@ -83,13 +83,13 @@ class Mycaed extends StatelessWidget {
                           String ammount = (controller.totalPrice.value * 100)
                               .toInt()
                               .toString();
-                          print(
-                              "==================================================${paymentController.paymentSuccess.value}");
+                          //print(
+                          //    "==================================================${paymentController.paymentSuccess.value}");
                           await paymentController.makepayment(
                               paymentIntentInputModel: PaymentIntentInputModel(
                                   ammount: ammount, currencyCode: "USD"));
-                          print(
-                              "==================================================${paymentController.paymentSuccess.value}");
+                          // print(
+                          //    "==================================================${paymentController.paymentSuccess.value}");
                           if (paymentController.paymentSuccess.value == true) {
                             // code of async Ordering
                             ordercontroller.placeOrder() ;

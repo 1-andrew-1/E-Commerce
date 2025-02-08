@@ -25,10 +25,11 @@ class Products {
     category = json['category'];
     image = json['image'];
     rating =
-        json['rating'] != null ? new Rating.fromJson(json['rating']) : null;
+        json['rating'] != null ?  Rating.fromJson(json['rating']) : null;
   }
 
   Map<String, dynamic> toJson() {
+    // ignore: prefer_collection_literals
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['id'] = this.id;
     data['title'] = this.title;

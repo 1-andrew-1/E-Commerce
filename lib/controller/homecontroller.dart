@@ -7,7 +7,6 @@ import 'package:furitshop/views/screens/account/myaccount.dart';
 import 'package:furitshop/views/screens/cart/mycaed.dart';
 import 'package:furitshop/core/class/functions/productapi.dart';
 import 'package:get/get.dart';
-import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 
 class Homecontroller extends GetxController {
   final FirebaseAsync firebaseAsync = Get.put(FirebaseAsync());
@@ -19,7 +18,7 @@ class Homecontroller extends GetxController {
   void addToFavorite(int id) {
     if (check(id)) {
       favorite.remove(id
-          .obs); // Remove the product from the favorite list if it exists there  // TODO: implement a way to remove the product from the favorite list, such as using Firestore or a database.  // You can use the following code as a reference: favorite.removeWhere((id) => id == id.obs);  // Make sure to replace 'id' with the actual variable representing the product's ID.  // Note: This code is just a placeholder and you need to replace it with the actual implementation.  // Also, make sure to handle the case where the user tries to remove a product that is not in their favorite list.  // You can add a check to see if the product exists in the favorite list before attempting to remove it.  // For example: if (favorite.contains(id.obs)) favorite.remove(id);  // Make sure to update the UI to reflect the changes.  // You can use the Getx
+          .obs); // Remove the product from the favorite list if it exists there  
     } else {
       favorite.add(id.obs); // Add the product as a favorite
     }
@@ -27,6 +26,7 @@ class Homecontroller extends GetxController {
     firebaseAsync.updateUserFavorites(favorite: normalNumbers);
   }
 
+  // ignore: non_constant_identifier_names
   void loading_screen() {
     Future.delayed(Duration(seconds: 3), () {
       isfetched.value = false;
@@ -154,11 +154,11 @@ class Homecontroller extends GetxController {
           showOrder = (data['orders'] as List)
               .map((item) => item as Map<String, dynamic>)
               .toList();
-          print(showOrder);
+          //print(showOrder);
         }
       }
     } catch (e) {
-      print(e);
+      //print(e);
     }
   }
 

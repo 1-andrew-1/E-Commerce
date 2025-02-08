@@ -45,7 +45,7 @@ Future<void> getUserInfo() async {
       }
     }
   } catch (e) {
-    print('Error saving user information: $e');
+    // print('Error saving user information: $e');
     // Consider adding error handling/retry logic here
   }
 }

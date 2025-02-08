@@ -24,9 +24,9 @@ class FirebaseAsync extends GetxController {
       await _firestore.collection('users').doc(userUID).set({
         'Favourite': favorite,
       }, SetOptions(merge: true)); // Merge to avoid overwriting existing data
-      print("Cart & Favorites updated successfully!");
+      //print("Cart & Favorites updated successfully!");
     } catch (e) {
-      print("Error updating cart & favorites: $e");
+      //print("Error updating cart & favorites: $e");
     }
   }
   // ✅ Update User's Cart  in Firestore
@@ -41,9 +41,9 @@ class FirebaseAsync extends GetxController {
       await _firestore.collection('users').doc(userUID).set({
         'Cart': cart,
       }, SetOptions(merge: true)); // Merge to avoid overwriting existing data
-      print("Cart & Favorites updated successfully!");
+      //print("Cart & Favorites updated successfully!");
     } catch (e) {
-      print("Error updating cart & favorites: $e");
+      //print("Error updating cart & favorites: $e");
     }
   }
 
@@ -62,15 +62,16 @@ class FirebaseAsync extends GetxController {
           .collection('orders')
           .get();
       // ✅ Correctly update `showOrder`
+      // ignore: unnecessary_cast
       showOrder = querySnapshot.docs.map((doc) => doc.data() as Map<String, dynamic>).toList();
       update(); // ✅ Notify GetX to update UI
 
-      print("Orders loaded successfully! Total Orders: ${showOrder.length}");
+      //print("Orders loaded successfully! Total Orders: ${showOrder.length}");
     } catch (e) {
-      print("Error fetching orders: $e");
+      //print("Error fetching orders: $e");
     }
 
-    print("Fetched Orders: $showOrder"); // ✅ Prints fetched orders clearly
+    //print("Fetched Orders: $showOrder"); // ✅ Prints fetched orders clearly
   }
 
   // ✅ Place an Order
@@ -83,11 +84,11 @@ class FirebaseAsync extends GetxController {
     try {
       await _firestore.collection('users').doc(userUID).set({
         'orders': newOrder,
-      }, SetOptions(merge: true));;
+      }, SetOptions(merge: true));
       //await fetchUserOrders(); // Refresh orders after adding a new one
-      print("Order placed successfully!");
+      //print("Order placed successfully!");
     } catch (e) {
-      print("Error placing order: $e");
+      //print("Error placing order: $e");
     }
   }
 }

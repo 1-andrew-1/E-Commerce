@@ -13,7 +13,7 @@ class ProductApi {
         throw Exception('Failed to load products');
       }
     } catch (e) {
-      print('Error getting products: $e');
+      // print('Error getting products: $e');
       return [];
     }
   }

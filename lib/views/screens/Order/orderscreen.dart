@@ -1,6 +1,4 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:furitshop/controller/firebase_asynic.dart';
 import 'package:furitshop/controller/homecontroller.dart';
 import 'package:furitshop/views/screens/Home/bottonnavigarion.dart';
 import 'package:furitshop/views/screens/cart/card%20count/emptyscreen.dart';
