@@ -42,7 +42,7 @@ class _NextPageState extends State<NextPage> {
               right: Sizeconig.defaultsize! * 2,
               child: TextButton(
                 onPressed: () {
-                  Get.off(() => const Login());
+                  Get.off(() => const Login() , transition: Transition.cupertino);
                 },
                 child: const Text(
                   'Skip',
@@ -67,7 +67,7 @@ class _NextPageState extends State<NextPage> {
                     curve: Curves.easeInOut,
                   );
                 }else {
-                  Get.off(() => const Login());
+                  Get.off(() => const Login() , transition: Transition.fadeIn);
                 }
               },
             ),

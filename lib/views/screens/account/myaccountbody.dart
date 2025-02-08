@@ -24,28 +24,28 @@ class Myaccountbody extends StatelessWidget {
           Heightspace(value: 2),
           Thebutton(
               ontap: () {
-                Get.to(() => OrderScreen());
+                Get.to(() => OrderScreen() , transition: Transition.fadeIn, duration: Duration(milliseconds: 650 ));
               },
               icon: Icons.shopping_bag,
               text: 'My Order'),
           Divider(),
           Thebutton(
               ontap: () {
-                Get.to(() => Myfavourite());
+                Get.to(() => Myfavourite() , transition: Transition.fadeIn, duration: Duration(milliseconds: 650 ));
               },
               icon: Icons.favorite,
               text: 'Favorite'),
           Divider(),
           Thebutton(
               ontap: () {
-                Get.to(() => Setting());
+                Get.to(() => Setting() , transition: Transition.fadeIn, duration: Duration(milliseconds: 650 ));
               },
               icon: Icons.settings,
               text: 'Settings'),
           Divider(),
           Thebutton(
               ontap: () {
-                Get.to(() => Mycaed());
+                Get.to(() => Mycaed() , transition: Transition.fadeIn, duration: Duration(milliseconds: 650 ));
               },
               icon: Icons.shopping_cart,
               text: 'Mycard'),

@@ -191,13 +191,13 @@ class SelectPage extends GetxController {
       case 0:
         break;
       case 1:
-        Get.to(() => const Mycaed());
+        Get.to(() => const Mycaed() , transition: Transition.circularReveal , duration: Duration(milliseconds: 650 ));
         break;
       case 2:
-        Get.to(() => const Myfavourite());
+        Get.to(() => const Myfavourite() , transition: Transition.circularReveal, duration: Duration(milliseconds: 650 ));
         break;
       case 3:
-        Get.to(() => const Myaccount());
+        Get.to(() => const Myaccount() , transition: Transition.cupertino, duration: Duration(milliseconds: 650 ));
         break;
       default:
         const Text('Home Page');

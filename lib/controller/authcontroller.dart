@@ -23,7 +23,7 @@ class Authcontroller extends GetxController {
     c.logging();
     c.getUserInfo();
     //await FirebaseAuth.instance.signInWithCredential(facebookAuthCredential);
-    return Get.off(() => Homepage());
+    return Get.off(() => Homepage() , transition: Transition.fadeIn , );
   }
 
   // google_sign_in
@@ -47,6 +47,6 @@ class Authcontroller extends GetxController {
     await FirebaseAuth.instance.signInWithCredential(credential);
     c.logging();
     c.getUserInfo();
-    return Get.offNamed('/home');
+    return Get.offNamed('/home' , );
   }
 }

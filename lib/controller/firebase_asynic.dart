@@ -84,7 +84,8 @@ class FirebaseAsync extends GetxController {
     try {
       await _firestore.collection('users').doc(userUID).set({
         'orders': newOrder,
-      }, SetOptions(merge: true));
+      }, //SetOptions(merge: true)
+      );
       //await fetchUserOrders(); // Refresh orders after adding a new one
       //print("Order placed successfully!");
     } catch (e) {

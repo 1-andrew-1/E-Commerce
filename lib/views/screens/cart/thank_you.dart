@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:furitshop/controller/order.dart';
 import 'package:furitshop/controller/payment.dart';
 import 'package:furitshop/views/screens/Home/bottonnavigarion.dart';
 import 'package:furitshop/views/widgets/check_circle_avatar.dart';
@@ -11,8 +12,9 @@ class PaymentSuccessScreen extends StatelessWidget {
   const PaymentSuccessScreen({super.key});
   void delayedAction(BuildContext context) {
     Future.delayed(Duration(seconds: 3) , () {
+        Ordercontroller().placeOrder();
         PaymentController().clear() ;
-        Get.offAll(() => BottomNavigation() ,transition: Transition.fade);
+        Get.offAll(() => BottomNavigation() ,transition: Transition.fade , duration: Duration(milliseconds: 650 ));
     });
   }
   @override

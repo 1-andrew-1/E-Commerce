@@ -45,9 +45,10 @@ class Ordercontroller extends GetxController {
       'cities': citiesName, // Store unique cities
       'timestamp': DateTime.now().toString(), // Optional timestamp
     };
-    orderList.add(newOrder); // Add single order to orderList
+    controller.showOrder.add(newOrder); // Add single order to orderList
+    print(controller.showOrder);
+    controller.sendOrderToFirestore(newOrder: controller.showOrder );
     homecontroller.cart.clear(); // Empty the homecontroller.cart
-    controller.sendOrderToFirestore(newOrder:homecontroller.convertdata(cart: orderList) );
     // print ("=======================================$orderList");
   }
 }

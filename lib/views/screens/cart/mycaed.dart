@@ -93,7 +93,7 @@ class Mycaed extends StatelessWidget {
                           if (paymentController.paymentSuccess.value == true) {
                             // code of async Ordering
                             ordercontroller.placeOrder() ;
-                            Get.to(() => PaymentSuccessScreen());
+                            Get.to(() => PaymentSuccessScreen() , transition: Transition.downToUp , duration: Duration(milliseconds: 500 ));
                           }
                         },
                         iconData: Icons.payment,

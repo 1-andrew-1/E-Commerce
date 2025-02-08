@@ -35,7 +35,7 @@ class _CardwidgtState extends State<Cardwidgt> {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Get.to(() => Detail(ID: widget.index));
+        Get.to(() => Detail(ID: widget.index) , transition: Transition.fadeIn , duration: Duration(milliseconds: 700 ));
       },
       child: Padding(
         padding: const EdgeInsets.all(10),
