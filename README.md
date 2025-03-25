@@ -1,16 +1,17 @@
-# furitshop
+# E-Commerce App 🛒  
 
-A new Flutter project.
+A modern and feature-rich e-commerce application built with Flutter. This app provides users with a seamless shopping experience, from browsing products to making secure purchases.  
 
-## Getting Started
+## Features ✨  
+- **Product Listing**: Browse a wide range of products with detailed descriptions.  
+- **Cart Management**: Add, update, and remove items from the shopping cart.  
+- **User Authentication**: Secure login and registration using Firebase.  
+- **Wishlist**: Save favorite products for later.  
+- **GetX State Management**: Efficient and responsive state management.  
 
-This project is a starting point for a Flutter application.
+## Tech Stack 🛠️  
+- **Frontend**: Flutter (Dart)  
+- **State Management**: GetX  
+- **Backend**: Firebase  
+- **Database**: Firestore  
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
